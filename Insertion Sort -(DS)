@@ -1,0 +1,33 @@
+/******************************************************************************
+
+    Insertion Sort Algorithm
+    (ascending order)
+Algo --
+1. insert element 
+2. check the inserted element with its previous element , if previous element is smaller than current element 
+   a) swap the elements.
+   b) repeat step (2) and (a) upto  index number 0 
+3.Repeat 2 - (a) and (b) for each element in array.
+
+*******************************************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int *arr=calloc(n,sizeof(int));
+    for(int i =0;i<n;i++){
+        scanf("%d",&arr[i]);
+        for(int j=i;j>=0&&arr[j]<arr[j-1];j--){
+            int temp=arr[j];
+            arr[j]=arr[j-1];
+            arr[j-1]=temp;
+        }
+    }
+    for(int i =0;i<n;i++){
+        printf("%d ",arr[i]);
+    }
+    return 0;
+}
